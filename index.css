@@ -37,7 +37,8 @@ font-weight: bold;
 }
 
 #section { 
-
+  grid-area: right-column;
+  padding: 50px;
 }
 
 #experiences { 
