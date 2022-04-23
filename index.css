@@ -1,78 +1,187 @@
-* {
-  max-width: 700px;
-  margin: auto;
-  text-align: justify;
-  box-sizing: border-box;
-}
+/* DEBUT DU CSS */
 
-#body{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "left-column right-column";
-  width: 1200px;
-  margin: 100px auto;
-}
+  * {
+   font-family: 'GlacialIndifference-Regular' ;
+   font-size: 15px;
+   text-align: justify;
+  }
 
-a {
-  color: black;
-  text-decoration: none;
-}
+/* Insertion d'une police spéciale en normal, gras et italique */
 
-a:hover {
-  text-decoration: underline;
-}
+  @font-face {
+   font-family : 'GlacialIndifference-Regular';
+   src: url('GlacialIndifference-Regular.otf') format('otf');
+   src: url('GlacialIndifference-Regular.ttf') format('truetype');
+  }
 
-#photo_banniere { 
-  grid-area: header;
-  padding: 30px;
-}
+  @font-face {
+    font-family : 'GlacialIndifference-Bold';
+    src: url('GlacialIndifference-Bold.otf') format('otf');
+    src: url('GlacialIndifference-Bold.ttf') format('truetype');
+  }
 
-#cote {
-  grid-area: left-column;
-  padding: 50px;
-}
+  @font-face {
+   font-family : 'GlacialIndifference-Italic';
+   src: url('GlacialIndifference-Italic.ttf') format('truetype');
+  }
 
-#photo_id { 
+/* Je mets un fond avec une certaine couleur */
 
-}
+  body {
+   background-color : #F6F6F6;
+   padding: 2em; 
+  }
 
-#titre { 
-font-weight: bold;
-}
+/* Ici je crée le premier flex permettant de superposer nos trois grandes parties (header, section et footer) */
 
-#identite{ 
+  #flex1 {
+    display: flex;  
+    flex-flow: column wrap;
+    text-align: justify;
+  }
 
-}
+/* En-tête du site internet avec l'image */
 
-#section { 
-  grid-area: right-column;
-  padding: 50px;
-}
+  #photo_banniere {
+    
+  }
 
-#experiences { 
+/* Photo d'en bas */
 
-}
+  #photo_en_bas {
+    
+  }
 
-#diplomes { 
+/* Mon nom et prénom en bas du site */
 
-}
+  #name { 
+    font-family: 'GlacialIndifference-Bold' ;
+    font-size: 25px;
+    text-shadow: 2px 2px 2px white;
+  }
 
-#divers { 
+/* Deuxième flex permettant de mettre aligné les éléments aside et article */
 
-}
+  #flex2 {
+    display: flex;  
+    flex-flow: row wrap;
+    text-align: justify;
+  }
 
-#photo_en_bas { 
+/* Ici on va s'occuper de tous nos liens */
 
-}
+  /* D'abord, je veux qu'ils aient une couleur bleu foncé 
+  et pas de soulignage */
 
-#footer { 
+  a {
+    color: darkblue ;
+    text-decoration: none;
+  }
 
-}
+  /* Ensuite, je veux que quand on passe la souris dessus, 
+  ils deviennent bleu clair et soulignés */
 
-#name { 
+  a:hover {
+    text-decoration: underline;
+    color: blue;
+  }
 
-}
+  /* Puis, je veux que quand on clique dessus, ils restent soulignés
+  et qu'ils deviennent violet */
 
-.titre_exp { 
+  a:active {
+    text-decoration: underline;
+    color: purple;
+  }
 
-}
+  /* Enfin, je veux qu'après avoir cliqué sur un lien, 
+  celui-ci reste violet pour montré qu'on a déjà visité le site */
+
+  a:visited {
+    text-decoration: underline;
+    color: purple;
+  } 
+
+  /* Ici je dois modifier la couleur du lien LinkedIn car avec les commandes css faites au début, il apparaît bleu, or je veux qu'il soit blanc */
+
+  #LinkedIn {
+    color: white;
+  }
+
+/* Ici je m'occupe de l'espacement entre les différents éléments qui seront présents sur le CV */
+
+  .bloc {
+    margin : 30px;
+    padding : 10 px;
+  }
+
+  h1 {
+   margin : 20px;
+   padding : 10 px;
+  }
+
+  li {
+   margin : 15px;
+   padding : 10 px;
+  }
+
+  ul {
+   margin : 10px;
+   padding : 10 px;
+  }
+
+/* Ici je décide de mettre un fond sur la partie à droite du CV et de changer la couleur de la police en blanc */
+
+  aside {
+    background-color: #3596FF;
+    color: #FFFFFF;
+  }
+
+/* Cette partie concerne ma photo de profil qui va être ronde */
+
+  #photo_id { 
+   border-radius: 50%;
+   max-width: 200px;
+   margin: 50px;
+   display: block;
+  }
+
+/* Ici je fais en sorte de mettre en gras et en plus grand "CV d'Eliot GIL" tout en mettant une ombre au titre afin qu'il ressorte mieux */
+
+  #titre { 
+   font-family: 'GlacialIndifference-Bold' ;
+   font-size: 50px;
+   text-shadow: 2px 2px 2px black;
+  }
+
+/* Là je fais en sorte que le titre "Coordonnées" apparaisse en blanc, gras mais aussi en ajoutant une bordure blanche et fine en haut et bas du titre, pour visuellement bien remarquer cette partie */
+
+  #coordonees{ 
+   font-family: 'GlacialIndifference-Bold' ;
+   border-bottom: 1px white solid;
+   border-top: 1px white solid;
+   font-size: 25px;
+  }
+
+/* Ici je fais en sorte de mettre en violet tout ce qui se trouve dans la partie gauche du CV */
+
+  article { 
+   color: #47167D;
+  }
+
+/* Comme pour "Coordonnées" (sauf concernant la couleur blanche), je fais en sorte de mettre en gras les 3 titres et mettre des bordures en haut et bas */
+
+  .categorie { 
+    font-family: 'GlacialIndifference-Bold' ;
+    font-size: 25px;
+    border-bottom: 1px #47167D solid;
+    border-top: 1px #47167D solid;
+  }
+
+/* Ici, je veux mettre en italic les titres de mes expériences pour les mettre en valeur */
+
+  .italic { 
+   font-family: 'GlacialIndifference-Italic' ;
+  }
+
+/* FIN DU CSS */
