@@ -1,8 +1,10 @@
 /* DEBUT DU CSS */
 
+/* -------------------- GENERAL -------------------- */
+
   * {
    font-family: 'GlacialIndifference-Regular' ;
-   font-size: 15px;
+   font-size: 20px;
    text-align: justify;
   }
 
@@ -28,47 +30,45 @@
 /* Je mets un fond avec une certaine couleur */
 
   body {
-   background-color : #F6F6F6;
    padding: 2em; 
   }
 
-/* Ici je crée le premier flex permettant de superposer nos trois grandes parties (header, section et footer) */
+/* ------------------ FIN GENERAL ------------------- */
 
-  #flex1 {
-    display: flex;  
-    flex-flow: column wrap;
-    text-align: justify;
-  }
 
-/* En-tête du site internet avec l'image */
+/* --------------------- HEADER ---------------------- */
 
-  #photo_banniere {
-    
-  }
+  /* En-tête du site internet avec l'image */
 
-/* Photo d'en bas */
+    header {
+     background-image: url("Fond_2.jpeg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 150px;
+    }
 
-  #photo_en_bas {
-    
-  }
+  /* Menu fixe étant un flex afin d'avoir une bordure et un fond délimité aux seuls éléments du flex et non pas sur toute la ligne */
 
-/* Mon nom et prénom en bas du site */
+   #ul_ancre {
+     position: fixed;
+     text-align: center;
+     list-style-type : none;
+     display: flex;
+     justify-content: space-evenly;
+     align-items: center;
+     align-content: center;
+     border: 1px #47167D solid;
+     background-color: white;
+    }
 
-  #name { 
-    font-family: 'GlacialIndifference-Bold' ;
-    font-size: 25px;
-    text-shadow: 2px 2px 2px white;
-  }
+   .li_ancre {
+     margin-left: 100px;
+     margin-right: 110px;
+     border: 1px #47167D solid;
+    }
+/* ------------------- FIN HEADER -------------------- */
 
-/* Deuxième flex permettant de mettre aligné les éléments aside et article */
-
-  #flex2 {
-    display: flex;  
-    flex-flow: row wrap;
-    text-align: justify;
-  }
-
-/* Ici on va s'occuper de tous nos liens */
+/* ---------------------- LIENS ------------------- */
 
   /* D'abord, je veux qu'ils aient une couleur bleu foncé 
   et pas de soulignage */
@@ -105,83 +105,155 @@
   /* Ici je dois modifier la couleur du lien LinkedIn car avec les commandes css faites au début, il apparaît bleu, or je veux qu'il soit blanc */
 
   #LinkedIn {
-    color: white;
+    color: black;
   }
 
-/* Ici je m'occupe de l'espacement entre les différents éléments qui seront présents sur le CV */
+/* --------------------- FIN LIENS ------------------ */
 
-  .bloc {
-    margin : 30px;
-    padding : 10 px;
-  }
 
-  h1 {
-   margin : 20px;
-   padding : 10 px;
-  }
+/* -------------------- MILIEU DU CV ----------------- */
 
-  li {
-   margin : 15px;
-   padding : 10 px;
-  }
+  /* Premier flex permettant d'aligner les éléments aside et article */
 
-  ul {
-   margin : 10px;
-   padding : 10 px;
-  }
+    #flex {
+     display: flex;  
+    }
 
-/* Ici je décide de mettre un fond sur la partie à droite du CV et de changer la couleur de la police en blanc */
+  /* Ici je m'occupe de l'espacement entre les différents éléments qui seront présents sur le CV */
 
-  aside {
-    background-color: #3596FF;
-    color: #FFFFFF;
-  }
+    .bloc {
+      margin : 0px;
+      padding : 15px;
+    }
 
-/* Cette partie concerne ma photo de profil qui va être ronde */
+    h1 {
+     margin : 15px;
+     padding : 0px;
+    }
 
-  #photo_id { 
-   border-radius: 50%;
-   max-width: 200px;
-   margin: 50px;
-   display: block;
-  }
+    li {
+     margin : 0px;
+     padding : 10px;
+    }
 
-/* Ici je fais en sorte de mettre en gras et en plus grand "CV d'Eliot GIL" tout en mettant une ombre au titre afin qu'il ressorte mieux */
+    ul {
+      margin : 15px;
+      padding : 10px;
+    }
 
-  #titre { 
-   font-family: 'GlacialIndifference-Bold' ;
-   font-size: 50px;
-   text-shadow: 2px 2px 2px black;
-  }
+  /*------------------ COTE GAUCHE ------------------- */
 
-/* Là je fais en sorte que le titre "Coordonnées" apparaisse en blanc, gras mais aussi en ajoutant une bordure blanche et fine en haut et bas du titre, pour visuellement bien remarquer cette partie */
+    /* Ici je décide de mettre un fond sur la partie à droite du CV et de changer la couleur de la police en blanc */
 
-  #coordonees{ 
-   font-family: 'GlacialIndifference-Bold' ;
-   border-bottom: 1px white solid;
-   border-top: 1px white solid;
-   font-size: 25px;
-  }
+     aside {
+       background-image: url("Fondcote.jpg");
+       background-repeat: no-repeat;
+       background-size: cover;
+       color: black ;
+       text-shadow: 2px 2px 0px whitesmoke
+      }
 
-/* Ici je fais en sorte de mettre en violet tout ce qui se trouve dans la partie gauche du CV */
+    /* Cette partie concerne ma photo de profil qui va être ronde */
 
-  article { 
-   color: #47167D;
-  }
+      #photo_id { 
+       border-radius: 50%;
+       max-width: 200px;
+       margin: 50px;
+       padding: 10px;
+       display: block;
+      }
 
-/* Comme pour "Coordonnées" (sauf concernant la couleur blanche), je fais en sorte de mettre en gras les 3 titres et mettre des bordures en haut et bas */
+    /* Ici je fais en sorte de mettre en gras et en plus grand "CV d'Eliot GIL" tout en mettant une ombre au titre afin qu'il ressorte mieux */
 
-  .categorie { 
-    font-family: 'GlacialIndifference-Bold' ;
-    font-size: 25px;
-    border-bottom: 1px #47167D solid;
-    border-top: 1px #47167D solid;
-  }
+      #titre { 
+       font-family: 'GlacialIndifference-Bold' ;
+       font-size: 50px;
+       text-shadow: 2px 2px 2px whitesmoke;
+      }
 
-/* Ici, je veux mettre en italic les titres de mes expériences pour les mettre en valeur */
+    /* Là je fais en sorte que le titre "Coordonnées" apparaisse en blanc, gras mais aussi en ajoutant une bordure blanche et fine en haut et bas du titre, pour visuellement bien remarquer cette partie */
 
-  .italic { 
-   font-family: 'GlacialIndifference-Italic' ;
-  }
+      .categorie_cote{ 
+       font-family: 'GlacialIndifference-Bold' ;
+       border-bottom: 1px #47167D solid;
+       border-top: 1px #47167D solid;
+       font-size: 35px;
+       padding: 15px;
+       text-transform: uppercase;
+       text-align: center;
+      }
+
+    /* Réduction de la taille pour les logos dans la partie Coordonnées */
+
+     .logo{
+        width: 25px;
+        height: 25px;
+        padding-right: 20px;
+      }
+  
+  /*---------------- FIN COTE GAUCHE ----------------- */
+
+
+  /*------------------ COTE DROIT -------------------- */
+
+    /* Ici je fais en sorte de mettre en violet tout ce qui se trouve dans la partie droite du CV */
+
+     article { 
+       color: #47167D;
+      }
+
+    /* Comme pour "Coordonnées" (sauf concernant la couleur blanche), je fais en sorte de mettre en gras les 3 titres et mettre des bordures en haut et bas */
+
+     #Experiences, #Diplomes, #Competences { 
+       font-family: 'GlacialIndifference-Bold' ;
+       font-size: 35px;
+       text-transform: uppercase;
+       border-bottom: 1px #47167D solid;
+       border-top: 1px #47167D solid;
+       padding: 15px;
+      }
+
+    /* Ici, je veux mettre en italic les titres de mes expériences pour les mettre en valeur */
+
+      .italic { 
+       font-family: 'GlacialIndifference-Italic' ;
+      }
+/*------------------ FIN COTE DROIT ------------------ */
+ 
+/* ------------------ FIN MILIEU DU CV --------------- */
+
+/* --------------------- FOOTER ---------------------- */
+
+  /* Tout d'abord, la photo d'en bas */
+
+    footer {
+      background-image: url("Fond_2.jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100px;
+   }
+ 
+   /* Ensuite je veux avoir écrit sur cette photo une phrase ayant une ancre pour remonter en haut de la page */
+ 
+   /* Or, si je le fais, avec la photo en background, on n'arrive pas à lire cette phrase. Si j'essaye de mettre un fond de couleur, celui-ci occupe toute la ligne puisque je veux que la phrase soit centrée */
+ 
+   /* C'est pour cela que j'ai créé un div sur lequel je crée un flex permettant de centrer l'élément (comme pour les ancres du haut) */
+ 
+   #flex_bas{
+     display: flex;
+     justify-content: center;
+   }
+ 
+   /* Ce qui me permet ensuite de mettre un fond et une bordure uniquement sur cet élément et non pas sur toute la ligne */
+ 
+   #bas { 
+     font-family: 'GlacialIndifference-Bold' ;
+     font-size: 25px;
+     text-shadow: 2px 2px 2px white;
+     background-color: white;
+     border: #47167D solid;
+   }
+ 
+/* -------------------- FIN FOOTER ------------------- */
 
 /* FIN DU CSS */
