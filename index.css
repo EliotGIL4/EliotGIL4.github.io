@@ -2,33 +2,35 @@
 
 /* -------------------- GENERAL -------------------- */
 
-  * {
-   font-family: 'GlacialIndifference-Regular' ;
-   font-size: 22px;
-   text-align: justify;
-   scroll-behavior: smooth;
-  }
+  /* Je souhaite mettre de façon générale une police, une taille, un alignage et une transition sur tout le CV */
 
-/* Insertion d'une police spéciale en normal et gras en deux format pour avoir une meilleure compatibilité */
+    * {
+     font-family: 'GlacialIndifference-Regular' ;
+     font-size: 22px;
+     text-align: justify;
+     scroll-behavior: smooth;
+    }
 
-  @font-face {
-   font-family : 'GlacialIndifference-Regular';
-   src: url('police/GlacialIndifference-Regular.otf') format('otf');
-   src: url('police/GlacialIndifference-Regular.ttf') format('truetype');
-  }
+  /* Insertion d'une police spéciale en normal et gras en deux formats pour avoir une meilleure compatibilité */
 
-  @font-face {
-    font-family : 'GlacialIndifference-Bold';
-    src: url('police/GlacialIndifference-Bold.otf') format('otf');
-    src: url('police/GlacialIndifference-Bold.ttf') format('truetype');
-  }
+   @font-face {
+     font-family : 'GlacialIndifference-Regular';
+     src: url('police/GlacialIndifference-Regular.otf') format('otf');
+     src: url('police/GlacialIndifference-Regular.ttf') format('truetype');
+   }
 
-/* Je préfère rétrécir le body de ma page afin de voir son ensemble 
-(si on le fait pas le menu de navigation par exemple n'apparaît plus)  */
+    @font-face {
+      font-family : 'GlacialIndifference-Bold';
+     src: url('police/GlacialIndifference-Bold.otf') format('otf');
+     src: url('police/GlacialIndifference-Bold.ttf') format('truetype');
+   }
 
-  body {
-   padding: 2em; 
-  }
+  /* Je préfère rétrécir le body de ma page afin de voir son ensemble 
+  (si on le fait pas le menu de navigation par exemple n'apparaît plus)  */
+
+   body {
+     padding: 2em; 
+   }
 
 /* ------------------ FIN GENERAL ------------------- */
 
@@ -76,7 +78,8 @@
     #ul_ancre :hover {
       background-color :#ffe9eb;
       transition: background 0.5s ease-in;
-     }
+    }
+
 /* ------------------- FIN HEADER -------------------- */
 
 /* ---------------------- LIENS ------------------- */
@@ -121,7 +124,7 @@
 
 /* -------------------- MILIEU DU CV ----------------- */
 
-  /* Premier flex permettant d'aligner les éléments aside et article */
+  /* Premier flex permettant d'aligner à l'horizontale les éléments aside et article */
 
     #flex {
      display: flex;  
@@ -175,7 +178,8 @@
        text-shadow: 2px 2px 2px whitesmoke;
       }
 
-    /* Là je fais en sorte que le titre "Coordonnées" apparaisse en blanc, gras mais aussi en ajoutant une bordure blanche et fine en haut et bas du titre, pour visuellement bien remarquer cette partie */
+    /* Là je fais en sorte que le titre "Coordonnées" apparaisse en blanc, gras 
+    mais aussi en ajoutant une bordure noire en haut et bas du titre, pour visuellement bien remarquer cette partie */
 
       .categorie_cote{ 
        font-family: 'GlacialIndifference-Bold' ;
@@ -194,6 +198,7 @@
         height: 25px;
         padding-right: 20px;
       }
+
     /* Redimension du QR code permettant de télécharger le CV sous forme pdf  */
 
       #QR_code{
@@ -212,7 +217,10 @@
      article { 
        color: #47167D;
       }
-    /* Ici je fais en sorte de mettre une bordure violette pour les expériences et diplômes, tout en espassant le tout */
+
+    /* Ici je fais en sorte de mettre une bordure violette pour les expériences et diplômes, tout en espassant le tout.
+    Je dois différencier le cas des expériences et diplômes ayant des li et ceux n'en n'ayant pas
+    car les li ont un padding/margin propre et les deux vont s'additionner. Je dois donc adapter en fonction. */
 
       .cadre_puce_tout {
         border: #47167D 1px solid;
@@ -272,13 +280,14 @@
         padding-right: 20px;
       }
 
-    /* Ici, je j'enlève le style (les points noirs) aux puces de premier niveau  */
+    /* Ici, j'enlève le style (les points noirs) aux puces de premier niveau  */
 
       .puce_1er {
         list-style-type: none;
       }
 
-    /* Ici, je redimensionne les images insérées */
+    /* Ici, je redimensionne les images insérées en deux groupes/classes (image_exp_1 et _2) 
+    et celle ayant l'id "jurislogic" (nécessite un paramétrage différent) */
 
         /* Dans Experiences */
 
@@ -308,7 +317,7 @@
             margin-top: -15px;
           }
 
-        /* Dans Diplômes */
+        /* Dans Diplômes en deux groupes/classes */
 
         .image_diplome_1 {
           width: 80px;
@@ -328,6 +337,43 @@
           margin-top: -15px;
         }
 
+    /* Dernière partie de la partie droite du CV : les Compétences.
+    Pour les compétences je choisis de faire un flex afin de positionner les éléments.
+    Je fais en sorte que les éléments sont tous espacés de manière horizontale et je rajoute 
+    des petits logos correspondants à la compétence citée, tout en encadrant les compétences. */
+
+      #flex_competence {
+        display: flex;
+        list-style-type: none;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+      }  
+
+      .milieu {
+        font-size: 20px;
+        background-color: white;
+        border: #47167D 1px solid;
+        border-radius: 50px;
+        margin : 10px;
+        padding : 15px;
+      }
+
+      .texte_competence {
+        padding-top : 2px;
+      }
+
+      .logo_competences {
+        width: 35px;
+        height: 35px;
+        float: left;
+        padding-right: 10px;
+      }
+
+      #flex_competence :hover {
+        background-color :#ffe9eb;
+        transition: background 0.5s ease-in;
+       }
+
 /*------------------ FIN COTE DROIT ------------------ */
  
 /* ------------------ FIN MILIEU DU CV --------------- */
@@ -343,24 +389,23 @@
       height: 100px;
    }
  
-   /* Ensuite je veux avoir écrit sur cette photo une phrase ayant une ancre pour remonter en haut de la page */
- 
-   /* Or, si je le fais, avec la photo en background, on n'arrive pas à lire cette phrase. Si j'essaye de mettre un fond de couleur, celui-ci occupe toute la ligne puisque je veux que la phrase soit centrée */
- 
-   /* C'est pour cela que j'ai créé un div sur lequel je crée un flex permettant de centrer l'élément (comme pour les ancres du haut) */
+   /* Ensuite je veux avoir écrit sur cette photo une phrase ayant une ancre pour remonter en haut de la page.
+   Or, si je le fais, avec la photo en background, on n'arrive pas à lire cette phrase. 
+   Si j'essaye de mettre un fond de couleur, celui-ci occupe toute la ligne puisque je veux que la phrase soit centrée.
+   C'est pour cela que j'ai créé un div sur lequel je crée un flex permettant de centrer l'élément (comme pour les ancres du haut). */
  
    #flex_bas{
      display: flex;
    }
 
-   /* Ici je veux que en survolant ma souris sur les éléments du flex, le fond devienne rose pale */
+   /* Ici je veux que en survolant ma souris sur les éléments du flex, le fond devienne rose pale. */
 
    #flex_bas :hover {
     background-color :#ffe9eb;
     transition: background 0.5s ease-in;
    }
  
-   /* Ce qui me permet ensuite de mettre un fond et une bordure uniquement sur cet élément et non pas sur toute la ligne */
+   /* Ce qui me permet ensuite de mettre un fond et une bordure uniquement sur cet élément et non pas sur toute la ligne. */
  
    .bas { 
      font-family: 'GlacialIndifference-Bold' ;
@@ -369,8 +414,9 @@
      background-color: white;
      border: #47167D solid;
      margin-left: 400px;
+     padding : 10px;
    }
  
 /* -------------------- FIN FOOTER ------------------- */
 
-/* FIN DU CSS */
+/* FIN DU CSS :) */
