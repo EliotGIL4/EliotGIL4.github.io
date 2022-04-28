@@ -9,7 +9,7 @@
    scroll-behavior: smooth;
   }
 
-/* Insertion d'une police spéciale en normal, gras et italique */
+/* Insertion d'une police spéciale en normal et gras en deux format pour avoir une meilleure compatibilité */
 
   @font-face {
    font-family : 'GlacialIndifference-Regular';
@@ -23,12 +23,8 @@
     src: url('police/GlacialIndifference-Bold.ttf') format('truetype');
   }
 
-  @font-face {
-   font-family : 'GlacialIndifference-Italic';
-   src: url('police/GlacialIndifference-Italic.ttf') format('truetype');
-  }
-
-/* Je mets un fond avec une certaine couleur */
+/* Je préfère rétrécir le body de ma page afin de voir son ensemble 
+(si on le fait pas le menu de navigation par exemple n'apparaît plus)  */
 
   body {
    padding: 2em; 
@@ -48,38 +44,37 @@
      height: 150px;
     }
 
-  /* Menu fixe étant un flex afin d'avoir une bordure et un fond délimité aux seuls éléments du flex et non pas sur toute la ligne */
+  /* Menu fixe étant un flex afin d'avoir une bordure et un fond délimité aux seuls éléments du flex 
+  et non pas sur toute la ligne */
 
    #ul_ancre {
      position: fixed;
-     text-align: center;
      list-style-type : none;
      display: flex;
-     justify-content: space-evenly;
-     align-items: center;
-     align-content: center;
-     border: 1px #47167D solid;
+     border: 2px #47167D solid;
      background-color: white;
     }
 
    .li_ancre {
-     margin-left: 100px;
+     margin-left: 185px;
      margin-right: 110px;
      border: 1px #47167D solid;
      background-color: white;
+     padding: 10px;
     }
 
-   /* Ici je veux que en survolant ma souris sur les éléments du flex, le fond devienne rose pale */
+    /* Ici on colle notre menu de navigation à la fenêtre d'en haut */
+
+    #bloc_ancre {
+      margin-top: -67px;
+    }
+
+   /* Ici je veux que en survolant les éléments du flex avec la souris, le fond devienne rose pale */
 
     #ul_ancre :hover {
       background-color :#ffe9eb;
       transition: background 0.5s ease-in;
      }
-
-    #bloc_ancre {
-      margin-top: -60px;
-    }
-
 /* ------------------- FIN HEADER -------------------- */
 
 /* ---------------------- LIENS ------------------- */
@@ -100,26 +95,23 @@
     color: blue;
   }
 
-  /* Puis, je veux que quand on clique dessus, ils restent soulignés
-  et qu'ils deviennent violet */
-
-  a:active {
-    text-decoration: underline;
-    color: purple;
-  }
-
   /* Enfin, je veux qu'après avoir cliqué sur un lien, 
-  celui-ci reste violet pour montré qu'on a déjà visité le site */
+  celui-ci reste violet pour montrer qu'on a déjà visité le site */
 
   a:visited {
     text-decoration: underline;
     color: purple;
   } 
 
-  /* Ici je dois modifier la couleur du lien LinkedIn car avec les commandes css faites au début, il apparaît bleu, or je veux qu'il soit blanc */
+  /* Ici je dois modifier la couleur du lien LinkedIn car avec les commandes css faites au début, 
+  il apparaît bleu, or je veux qu'il soit blanc */
 
   #LinkedIn {
     color: black;
+  }
+
+  #LinkedIn:hover{
+    color:blue;
   }
 
 /* --------------------- FIN LIENS ------------------ */
@@ -136,23 +128,19 @@
   /* Ici je m'occupe de l'espacement entre les différents éléments qui seront présents sur le CV */
 
     .bloc {
-      margin : 0px;
-      padding : 15px;
+      padding : 10px;
     }
 
     h1 {
      margin : 15px;
-     padding : 0px;
     }
 
     li {
-     margin : 0px;
-     padding : 10px;
+     padding-top : 10px;
     }
 
     ul {
       margin : 15px;
-      padding : 10px;
     }
 
   /*------------------ COTE GAUCHE ------------------- */
@@ -204,6 +192,7 @@
         height: 25px;
         padding-right: 20px;
       }
+    /* Redimension du QR code permettant de télécharger le CV sous forme pdf  */
 
       #QR_code{
         width: 200px;
@@ -221,6 +210,39 @@
      article { 
        color: #47167D;
       }
+    /* Ici je fais en sorte de mettre une bordure violette pour les expériences et diplômes, tout en espassant le tout */
+
+      .cadre_puce_tout {
+        border: #47167D 1px solid;
+        margin-bottom: 50px;
+        margin-right: 25px;
+        padding-top: 40px;
+        padding-bottom:30px;
+      }
+
+      .cadre_puce_tout_sans_li2nd {
+        border: #47167D 1px solid;
+        margin-bottom: 50px;
+        margin-right: 25px;
+        padding-top: 40px;
+        padding-bottom:40px;
+      }
+
+      .cadre_puce_tout_diplomes {
+        border: #47167D 1px solid;
+        margin-bottom: 50px;
+        margin-right: 25px;
+        padding-top: 40px;
+        padding-bottom:30px;
+      }
+
+      .cadre_puce_tout_diplomes_sans_li {
+        border: #47167D 1px solid;
+        margin-bottom: 50px;
+        margin-right: 25px;
+        padding-top: 40px;
+        padding-bottom:40px;
+      }
 
     /* Comme pour "Coordonnées" (sauf concernant la couleur blanche), je fais en sorte de mettre en gras les 3 titres et mettre des bordures en haut et bas */
 
@@ -231,54 +253,79 @@
        text-align: center;
        border-bottom: 2px #47167D solid;
        border-top: 2px #47167D solid;
-       padding: 15px;
+       padding: 10px;
       }
+
+    /* Ici, je fais en sorte d'intégrer les puces dans les espaces des textes afin de les rapprocher 
+    et j'espace le tout */
 
       .li_2nd {
-        padding-left: 50px;
-      }
-
-    /* Ici, je veux mettre en italic les titres de mes expériences pour les mettre en valeur */
-
-      .italic { 
-       font-family: 'GlacialIndifference-Italic' ;
-       padding-left: 20px;
-      }
-
-      #korian{
-        width: 80px;
-        height: 60px;
+        list-style-position: inside;
         padding-right: 20px;
-        padding-left: 20px;
+        padding-left: 10px;
       }
 
-      #jurislogic{
-        width: 60px;
-        height: 60px;
+      .li_2nd_diplomes {
+        list-style-position: inside;
         padding-right: 20px;
-        padding-left: 20px;
       }
 
-      #bayreuth{
-        width: 80px;
-        height: 60px;
-        padding-right: 20px;
-        padding-left: 20px;
+    /* Ici, je j'enlève le style (les points noirs) aux puces de premier niveau  */
+
+      .puce_1er {
+        list-style-type: none;
       }
 
-      #avocat{
-        width: 60px;
-        height: 60px;
-        padding-right: 20px;
-        padding-left: 20px;
-      }
+    /* Ici, je redimensionne les images insérées */
 
-      #design{
-        width: 60px;
-        height: 60px;
-        padding-right: 20px;
-        padding-left: 20px;
-      }
+        /* Dans Experiences */
+
+          .image_exp_1{ 
+           width: 100px;
+           height: 60px;
+           float: left;
+           padding-left : 20px;
+           padding-right: 20px;
+           margin-top: -5px;
+          }
+
+         #jurislogic{
+            width: 80px;
+            height: 80px;
+            float: left;
+            padding-left : 20px;
+            padding-right: 20px;
+          }
+
+          .image_exp_2{
+            width: 80px;
+            height: 80px;
+            float: left;
+            padding-left : 20px;
+            padding-right: 20px;
+            margin-top: -15px;
+          }
+
+        /* Dans Diplômes */
+
+        .image_diplome_1 {
+          width: 80px;
+          height: 80px;
+          float: left;
+          padding-left : 20px;
+          padding-right: 17px;
+          margin-top: -15px;
+        }
+
+        .image_diplome_2{
+          width: 80px;
+          height: 80px;
+          float: left;
+          padding-left : 20px;
+          padding-right: 20px;
+          margin-top: -15px;
+        }
+
 /*------------------ FIN COTE DROIT ------------------ */
  
 /* ------------------ FIN MILIEU DU CV --------------- */
@@ -302,7 +349,6 @@
  
    #flex_bas{
      display: flex;
-     justify-content: center;
    }
 
    /* Ici je veux que en survolant ma souris sur les éléments du flex, le fond devienne rose pale */
@@ -320,8 +366,7 @@
      text-shadow: 2px 2px 2px white;
      background-color: white;
      border: #47167D solid;
-     margin-left: 70px;
-     margin-right: 110px;
+     margin-left: 400px;
    }
  
 /* -------------------- FIN FOOTER ------------------- */
